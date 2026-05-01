@@ -14,7 +14,7 @@ CORS(app)
 
 # --- GLOBAL CONFIG ---
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-MODEL_PATH = os.path.join(BASE_DIR, 'Model', 'multivariate_model.pth')
+MODEL_PATH = os.path.join(BASE_DIR, "multivariate_model.pth")
 DATA_PATH = os.path.join(BASE_DIR, 'Dataset', 'new_aqi.csv')
 
 model = AQILSTM()
