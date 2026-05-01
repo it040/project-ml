@@ -13,16 +13,18 @@ app = Flask(__name__)
 CORS(app)
 
 # --- GLOBAL CONFIG ---
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "multivariate_model.pth")
 DATA_PATH = os.path.join(BASE_DIR, 'Dataset', 'new_aqi.csv')
-
 model = AQILSTM()
-model.load_state_dict(torch.load(MODEL_PATH, map_location="cpu"))
-model.eval()
 
-print("Model loaded from:", MODEL_PATH)
-print("Dataset loaded from:", DATA_PATH)
+try:
+    model.load_state_dict(torch.load(MODEL_PATH, map_location="cpu"))
+    model.eval()
+    print("Model loaded successfully")
+except Exception as e:
+    print("Model load failed:", e)
+    model = None
 
 df = pd.read_csv(DATA_PATH)
 
