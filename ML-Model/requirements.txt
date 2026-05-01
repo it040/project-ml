@@ -1,5 +1,6 @@
 Flask
 flask-cors
+uvicorn
 gunicorn
 torch
 numpy
