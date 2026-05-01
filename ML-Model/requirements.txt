@@ -1,0 +1,11 @@
+Flask
+flask-cors
+gunicorn
+torch
+numpy
+pandas
+scikit-learn
+requests
+setuptools
+wheel
+pip
